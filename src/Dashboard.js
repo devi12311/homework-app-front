@@ -67,7 +67,8 @@ function PricingContent() {
                 date: data.date
             }),
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
             },
         });
 
@@ -90,7 +91,7 @@ function PricingContent() {
         const request = new Request(`${BASE_URL}/dashboard`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${accessToken}`,
             },
         });
 
@@ -150,8 +151,9 @@ function PricingContent() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         data.append('subject', subjectId.id);
+        data.append('date', Date.now());
         createAbsence({
-            subjectId: parseInt(data.get('subject')),
+            subjectId: subjectId.id,
             date: Date.now()
         })
     };
