@@ -106,7 +106,7 @@ export default function SignUp(props) {
                                     required
                                     fullWidth
                                     id="username"
-                                    label="First Name"
+                                    label="Username"
                                     autoFocus
                                 />
                             </Grid>
